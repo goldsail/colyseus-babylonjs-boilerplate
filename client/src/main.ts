@@ -10,6 +10,7 @@ import { client } from "./game/network";
 import { StateHandler } from "../../server/src/rooms/StateHandler";
 import { PressedKeys } from "../../server/src/entities/Player";
 import { Vector2, Vector3 } from "babylonjs";
+import 'babylonjs-loaders';
 
 const canvas = document.getElementById('game') as HTMLCanvasElement;
 const engine = new BABYLON.Engine(canvas, true);
@@ -35,7 +36,7 @@ var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0),
 light.intensity = 0.7;
 
 //import maze from github, and add to scene
-var baseURL = "./assets/";
+var baseURL =  "https://raw.githubusercontent.com/WeibelLab-Teaching/CSE_218_118_Fa20_Team_N/main/src/assets/";
 var mazeName = "thinMaze.glb";
 BABYLON.SceneLoader.ImportMesh("", baseURL, mazeName, scene);
 

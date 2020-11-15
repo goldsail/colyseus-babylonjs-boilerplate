@@ -19,7 +19,7 @@ export class GameRoom extends Room<StateHandler> {
         const player = new Player();
         player.name = `Player ${ this.clients.length }`;
         player.position.x = Math.random();
-        player.position.y = 0.5;
+        player.position.y = 5;
         player.position.z = Math.random();
         player.position.heading = 0;
 
