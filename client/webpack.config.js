@@ -15,7 +15,7 @@ module.exports = function(options) {
     mode: MODE,
 
     entry: {
-      main: path.resolve('src/index.ts')
+      main: path.resolve('src/main.ts')
     },
 
     output: {

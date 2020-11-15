@@ -20,5 +20,8 @@
   "license": "Apache 2.0",
   "devDependencies": {
     "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "babylonjs": "^4.2.0"
   }
 }

@@ -34,8 +34,24 @@ var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0),
 // Default intensity is 1. Let's dim the light a small amount
 light.intensity = 0.7;
 
+//import maze from github, and add to scene
+var baseURL = "./assets/";
+var mazeName = "thinMaze.glb";
+BABYLON.SceneLoader.ImportMesh("", baseURL, mazeName, scene);
+
 // Our built-in 'ground' shape. Params: name, width, depth, subdivs, scene
-var ground = BABYLON.Mesh.CreateGround("ground1", 12, 12, 2, scene);
+var ground = BABYLON.Mesh.CreateGround("ground1", 100, 100, 2, scene);
+
+// Skybox
+var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size:1000.0}, scene);
+var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+skyboxMaterial.backFaceCulling = false;
+var skyBoxURL = baseURL + "nebula/nebula";
+skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture(skyBoxURL, scene);
+skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+skybox.material = skyboxMaterial;
 
 // Attach default camera mouse navigation
 // camera.attachControl(canvas);
